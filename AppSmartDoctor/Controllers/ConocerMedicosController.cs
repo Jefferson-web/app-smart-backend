@@ -13,18 +13,24 @@ namespace AppSmartDoctor.Controllers
     {
 
         [HttpGet("ListarEspecialidades")]
-        public IEnumerable<Especialidad> ListarEspecialidades() {
-            return EspecialidadSOA.ListarEspecialidades();
+        public IEnumerable<Especialidad> ListarEspecialidades(string filtro_nombre = null) {
+            var especialidades = EspecialidadSOA.ListarEspecialidades();
+            if (filtro_nombre != null) {
+                especialidades = especialidades.Where(esp => esp.nombre.Contains(filtro_nombre));            
+            }
+            return especialidades;
         }
 
         [HttpGet("ListarMedicos")]
-        public IEnumerable<Medico> ListarMedicos(string q = null, int? especialidadId = null) {
+        public IEnumerable<Medico> ListarMedicos(string filtro_nombre = null, int? especialidadId = null) {
             var medicos = MedicoSOA.ListarMedicos();
             // Aplicando filtros
-            if (q != null)
-                medicos = medicos.Where(medico => medico.nombres.Contains(q));
-            if (especialidadId != null)
+            if (filtro_nombre != null) {
+                medicos = medicos.Where(medico => medico.nombres.Contains(filtro_nombre));
+            }
+            if (especialidadId != null) {
                 medicos = medicos.Where(medico => medico.especialidadId == especialidadId);
+            }
             return medicos;
         }
 
