@@ -15,6 +15,11 @@ INSERT [dbo].[TipoPago] ([tipoPagoId], [tipo]) VALUES (3, N'Pagar con Tarjeta')
 SET IDENTITY_INSERT [dbo].[TipoPago] OFF
 GO
 
+SET IDENTITY_INSERT [dbo].[Pacientes] ON
+INSERT [dbo].[Pacientes] ([pacienteId], [nombres], [DNI], [fecha_nacimiento], [edad], [sexo], [distrito_colonia]) VALUES (1, N'Jeffersons Ledesma', N'74867428', CAST(N'1999-04-16T00:00:00.0000000' AS DateTime2), 22, 1, N'La Victoria')
+SET IDENTITY_INSERT [dbo].[Pacientes] OFF
+GO
+
 SET IDENTITY_INSERT [dbo].[Especialidades] ON
 INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (1, N'Medicina General', NULL);
 INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (2, N'Urologia Pediátrica', NULL);
@@ -153,4 +158,9 @@ INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_
 INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (42, 6, CAST(N'2021-11-19T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-19T08:40:00.0000000' AS DateTime2), CAST(N'2021-11-19T09:00:00.0000000' AS DateTime2), 1);
 INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (43, 6, CAST(N'2021-11-19T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-19T09:00:00.0000000' AS DateTime2), CAST(N'2021-11-19T09:20:00.0000000' AS DateTime2), 1);
 SET IDENTITY_INSERT [dbo].[Horarios] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[Citas] ON 
+INSERT [dbo].[Citas] ([citaId], [medicoId], [pacienteId], [fecha], [hora_inicio], [hora_fin], [motivo], [costo], [pagado], [atendido], [fecha_registro]) VALUES (1, 1, 1, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T08:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T08:45:00.0000000' AS DateTime2), N'Dolor de cabeza', 80, 0, 0, CAST(N'2021-11-14T21:49:21.4390438' AS DateTime2))
+SET IDENTITY_INSERT [dbo].[Citas] OFF
 GO
