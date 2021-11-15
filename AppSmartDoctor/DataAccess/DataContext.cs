@@ -24,6 +24,10 @@ namespace AppSmartDoctor.DataAccess
         public DbSet<Pago> Pagos { get; set; }
         public DbSet<TipoPago> TipoPago {get; set;}
         public DbSet<Horario> Horarios { get; set; }
+        public DbSet<CuentaDoctor> CuentaDoctor { get; set; }
+        public DbSet<Receta> Recetas { get; set; }
+        public DbSet<Indicacion> Indicaciones { get; set; }
+        public DbSet<Diagnostico> Diagnosticos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder
@@ -81,6 +85,31 @@ namespace AppSmartDoctor.DataAccess
                 .HasMany<Horario>()
                 .WithOne()
                 .HasForeignKey(prop => prop.medicoId);
+            modelBuilder
+                .Entity<Medico>()
+                .HasOne<CuentaDoctor>()
+                .WithOne()
+                .HasForeignKey<CuentaDoctor>(c => c.medicoId);
+            modelBuilder
+                .Entity<Paciente>()
+                .HasOne<FichaClinica>()
+                .WithOne()
+                .HasForeignKey<FichaClinica>(f => f.pacienteId);
+            modelBuilder
+                .Entity<Cita>()
+                .HasMany<Receta>()
+                .WithOne()
+                .HasForeignKey(r => r.citaId);
+            modelBuilder
+                .Entity<Cita>()
+                .HasMany<Diagnostico>()
+                .WithOne()
+                .HasForeignKey(d => d.citaId);
+            modelBuilder
+                .Entity<Cita>()
+                .HasMany<Indicacion>()
+                .WithOne()
+                .HasForeignKey(i => i.citaId);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppSmartDoctor.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20211114144515_Initial")]
-    partial class Initial
+    [Migration("20211115022317_Intial")]
+    partial class Intial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -124,6 +124,53 @@ namespace AppSmartDoctor.Migrations
                     b.ToTable("Consultorios");
                 });
 
+            modelBuilder.Entity("AppSmartDoctor.Models.CuentaDoctor", b =>
+                {
+                    b.Property<int>("cuentaDoctorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("medicoId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("nombreBanco")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("nroCuenta")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("nroCuentaCCI")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("cuentaDoctorId");
+
+                    b.HasIndex("medicoId")
+                        .IsUnique();
+
+                    b.ToTable("CuentaDoctor");
+                });
+
+            modelBuilder.Entity("AppSmartDoctor.Models.Diagnostico", b =>
+                {
+                    b.Property<int>("diagnosticoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("citaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("diagnosticoId");
+
+                    b.HasIndex("citaId");
+
+                    b.ToTable("Diagnosticos");
+                });
+
             modelBuilder.Entity("AppSmartDoctor.Models.Especialidad", b =>
                 {
                     b.Property<int>("especialidadId")
@@ -188,6 +235,33 @@ namespace AppSmartDoctor.Migrations
                     b.ToTable("Experiencias");
                 });
 
+            modelBuilder.Entity("AppSmartDoctor.Models.FichaClinica", b =>
+                {
+                    b.Property<int>("fichaClinicaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("fecha_registro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("pacienteId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("peso")
+                        .HasColumnType("float");
+
+                    b.Property<double>("talla")
+                        .HasColumnType("float");
+
+                    b.HasKey("fichaClinicaId");
+
+                    b.HasIndex("pacienteId")
+                        .IsUnique();
+
+                    b.ToTable("FichaClinica");
+                });
+
             modelBuilder.Entity("AppSmartDoctor.Models.Horario", b =>
                 {
                     b.Property<int>("horarioId")
@@ -215,6 +289,26 @@ namespace AppSmartDoctor.Migrations
                     b.HasIndex("medicoId");
 
                     b.ToTable("Horarios");
+                });
+
+            modelBuilder.Entity("AppSmartDoctor.Models.Indicacion", b =>
+                {
+                    b.Property<int>("indicacionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("citaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("indicacionId");
+
+                    b.HasIndex("citaId");
+
+                    b.ToTable("Indicaciones");
                 });
 
             modelBuilder.Entity("AppSmartDoctor.Models.Medico", b =>
@@ -324,6 +418,38 @@ namespace AppSmartDoctor.Migrations
                     b.ToTable("Pagos");
                 });
 
+            modelBuilder.Entity("AppSmartDoctor.Models.Receta", b =>
+                {
+                    b.Property<int>("recetaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("citaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("frecuencia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("horas")
+                        .HasColumnType("int");
+
+                    b.Property<string>("nombre_medicamento")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("observacion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("recetaId");
+
+                    b.HasIndex("citaId");
+
+                    b.ToTable("Recetas");
+                });
+
             modelBuilder.Entity("AppSmartDoctor.Models.Residencia", b =>
                 {
                     b.Property<int>("residenciaId")
@@ -387,6 +513,24 @@ namespace AppSmartDoctor.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("AppSmartDoctor.Models.CuentaDoctor", b =>
+                {
+                    b.HasOne("AppSmartDoctor.Models.Medico", null)
+                        .WithOne()
+                        .HasForeignKey("AppSmartDoctor.Models.CuentaDoctor", "medicoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AppSmartDoctor.Models.Diagnostico", b =>
+                {
+                    b.HasOne("AppSmartDoctor.Models.Cita", null)
+                        .WithMany()
+                        .HasForeignKey("citaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("AppSmartDoctor.Models.Estudio", b =>
                 {
                     b.HasOne("AppSmartDoctor.Models.Medico", null)
@@ -405,11 +549,29 @@ namespace AppSmartDoctor.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("AppSmartDoctor.Models.FichaClinica", b =>
+                {
+                    b.HasOne("AppSmartDoctor.Models.Paciente", null)
+                        .WithOne()
+                        .HasForeignKey("AppSmartDoctor.Models.FichaClinica", "pacienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("AppSmartDoctor.Models.Horario", b =>
                 {
                     b.HasOne("AppSmartDoctor.Models.Medico", null)
                         .WithMany()
                         .HasForeignKey("medicoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AppSmartDoctor.Models.Indicacion", b =>
+                {
+                    b.HasOne("AppSmartDoctor.Models.Cita", null)
+                        .WithMany()
+                        .HasForeignKey("citaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -440,6 +602,15 @@ namespace AppSmartDoctor.Migrations
                     b.HasOne("AppSmartDoctor.Models.TipoPago", null)
                         .WithMany()
                         .HasForeignKey("tipoPagoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AppSmartDoctor.Models.Receta", b =>
+                {
+                    b.HasOne("AppSmartDoctor.Models.Cita", null)
+                        .WithMany()
+                        .HasForeignKey("citaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

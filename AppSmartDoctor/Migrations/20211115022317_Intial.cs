@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AppSmartDoctor.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Intial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -63,6 +63,28 @@ namespace AppSmartDoctor.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TipoPago", x => x.tipoPagoId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FichaClinica",
+                columns: table => new
+                {
+                    fichaClinicaId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    pacienteId = table.Column<int>(type: "int", nullable: false),
+                    peso = table.Column<double>(type: "float", nullable: false),
+                    talla = table.Column<double>(type: "float", nullable: false),
+                    fecha_registro = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FichaClinica", x => x.fichaClinicaId);
+                    table.ForeignKey(
+                        name: "FK_FichaClinica_Pacientes_pacienteId",
+                        column: x => x.pacienteId,
+                        principalTable: "Pacientes",
+                        principalColumn: "pacienteId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -145,6 +167,28 @@ namespace AppSmartDoctor.Migrations
                     table.PrimaryKey("PK_Consultorios", x => x.consultorioId);
                     table.ForeignKey(
                         name: "FK_Consultorios_Medicos_medicoId",
+                        column: x => x.medicoId,
+                        principalTable: "Medicos",
+                        principalColumn: "medicoId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CuentaDoctor",
+                columns: table => new
+                {
+                    cuentaDoctorId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    medicoId = table.Column<int>(type: "int", nullable: false),
+                    nombreBanco = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    nroCuenta = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    nroCuentaCCI = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CuentaDoctor", x => x.cuentaDoctorId);
+                    table.ForeignKey(
+                        name: "FK_CuentaDoctor_Medicos_medicoId",
                         column: x => x.medicoId,
                         principalTable: "Medicos",
                         principalColumn: "medicoId",
@@ -241,6 +285,46 @@ namespace AppSmartDoctor.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Diagnosticos",
+                columns: table => new
+                {
+                    diagnosticoId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    citaId = table.Column<int>(type: "int", nullable: false),
+                    descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Diagnosticos", x => x.diagnosticoId);
+                    table.ForeignKey(
+                        name: "FK_Diagnosticos_Citas_citaId",
+                        column: x => x.citaId,
+                        principalTable: "Citas",
+                        principalColumn: "citaId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Indicaciones",
+                columns: table => new
+                {
+                    indicacionId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    citaId = table.Column<int>(type: "int", nullable: false),
+                    descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Indicaciones", x => x.indicacionId);
+                    table.ForeignKey(
+                        name: "FK_Indicaciones_Citas_citaId",
+                        column: x => x.citaId,
+                        principalTable: "Citas",
+                        principalColumn: "citaId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Pagos",
                 columns: table => new
                 {
@@ -272,6 +356,30 @@ namespace AppSmartDoctor.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Recetas",
+                columns: table => new
+                {
+                    recetaId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    citaId = table.Column<int>(type: "int", nullable: false),
+                    nombre_medicamento = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    cantidad = table.Column<int>(type: "int", nullable: false),
+                    frecuencia = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    horas = table.Column<int>(type: "int", nullable: false),
+                    observacion = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Recetas", x => x.recetaId);
+                    table.ForeignKey(
+                        name: "FK_Recetas_Citas_citaId",
+                        column: x => x.citaId,
+                        principalTable: "Citas",
+                        principalColumn: "citaId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Archivos_citaId",
                 table: "Archivos",
@@ -294,6 +402,17 @@ namespace AppSmartDoctor.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_CuentaDoctor_medicoId",
+                table: "CuentaDoctor",
+                column: "medicoId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Diagnosticos_citaId",
+                table: "Diagnosticos",
+                column: "citaId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Estudios_medicoId",
                 table: "Estudios",
                 column: "medicoId");
@@ -304,9 +423,20 @@ namespace AppSmartDoctor.Migrations
                 column: "medicoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_FichaClinica_pacienteId",
+                table: "FichaClinica",
+                column: "pacienteId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Horarios_medicoId",
                 table: "Horarios",
                 column: "medicoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Indicaciones_citaId",
+                table: "Indicaciones",
+                column: "citaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Medicos_especialidadId",
@@ -327,6 +457,11 @@ namespace AppSmartDoctor.Migrations
                 name: "IX_Pagos_tipoPagoId",
                 table: "Pagos",
                 column: "tipoPagoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Recetas_citaId",
+                table: "Recetas",
+                column: "citaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -338,22 +473,37 @@ namespace AppSmartDoctor.Migrations
                 name: "Consultorios");
 
             migrationBuilder.DropTable(
+                name: "CuentaDoctor");
+
+            migrationBuilder.DropTable(
+                name: "Diagnosticos");
+
+            migrationBuilder.DropTable(
                 name: "Estudios");
 
             migrationBuilder.DropTable(
                 name: "Experiencias");
 
             migrationBuilder.DropTable(
+                name: "FichaClinica");
+
+            migrationBuilder.DropTable(
                 name: "Horarios");
+
+            migrationBuilder.DropTable(
+                name: "Indicaciones");
 
             migrationBuilder.DropTable(
                 name: "Pagos");
 
             migrationBuilder.DropTable(
-                name: "Citas");
+                name: "Recetas");
 
             migrationBuilder.DropTable(
                 name: "TipoPago");
+
+            migrationBuilder.DropTable(
+                name: "Citas");
 
             migrationBuilder.DropTable(
                 name: "Medicos");
