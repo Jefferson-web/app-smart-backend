@@ -28,6 +28,7 @@ namespace AppSmartDoctor.DataAccess
         public DbSet<Receta> Recetas { get; set; }
         public DbSet<Indicacion> Indicaciones { get; set; }
         public DbSet<Diagnostico> Diagnosticos { get; set; }
+        public DbSet<Calificacion> Calificaciones { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder
@@ -110,6 +111,16 @@ namespace AppSmartDoctor.DataAccess
                 .HasMany<Indicacion>()
                 .WithOne()
                 .HasForeignKey(i => i.citaId);
+            modelBuilder
+                .Entity<Paciente>()
+                .HasMany<Calificacion>()
+                .WithOne()
+                .HasForeignKey(c => c.pacienteId);
+            modelBuilder
+                .Entity<Medico>()
+                .HasMany<Calificacion>()
+                .WithOne()
+                .HasForeignKey(c => c.medicoId);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

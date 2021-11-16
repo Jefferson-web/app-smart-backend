@@ -4,14 +4,16 @@ using AppSmartDoctor.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AppSmartDoctor.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20211115043121_Miigracion-Comentario")]
+    partial class MiigracionComentario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,9 +63,6 @@ namespace AppSmartDoctor.Migrations
 
                     b.Property<string>("comentario")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("fecha_registro")
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("medicoId")
                         .HasColumnType("int");
