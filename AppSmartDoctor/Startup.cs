@@ -28,6 +28,15 @@ namespace AppSmartDoctor
         {
             services.AddScoped<DataContext>();
             services.AddControllers();
+            services.AddCors(o =>
+            {
+                o.AddPolicy("MyPolicy", builder =>
+                {
+                    builder.AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin();
+                });
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AppSmartDoctor", Version = "v1" });
@@ -45,6 +54,8 @@ namespace AppSmartDoctor
             }
 
             app.UseRouting();
+
+            app.UseCors("MyPolicy");
 
             app.UseAuthorization();
 

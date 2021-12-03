@@ -63,8 +63,25 @@ namespace AppSmartDoctor.Models
             var calificaciones = from calificacion in ctx.Calificaciones
                                  where calificacion.medicoId == medicoId
                                  select calificacion;
-            var promedio = calificaciones.ToList().Sum(c => c.puntuacion) / calificaciones.Count();
-            return promedio;
+            if (calificaciones.Count() > 0) {
+                double promedio = calificaciones.ToList().Sum(c => c.puntuacion) / calificaciones.Count();
+                return promedio;
+            }
+            return 0;
+        }
+
+        public static dynamic InfoMedico(int medicoId)
+        {
+            var ctx = new DataContext();
+            var medico = (from m in ctx.Medicos
+                          join e in ctx.Especialidades on m.especialidadId equals e.especialidadId
+                          where m.medicoId == medicoId
+                          select new
+                          {
+                              nombre_medico = m.nombres,
+                              nombre_especialidad = e.nombre
+                          }).SingleOrDefault();
+            return medico;
         }
 
         public static Calificacion VerCalificacion(int calificacionId) {

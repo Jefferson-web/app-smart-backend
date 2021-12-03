@@ -1,4 +1,5 @@
 ﻿using AppSmartDoctor.Models;
+using AppSmartDoctor.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace AppSmartDoctor.Controllers
     {
 
         [HttpGet("ListarEspecialidades")]
-        public IEnumerable<Especialidad> ListarEspecialidades(string filtro_nombre = null) {
+        public IEnumerable<dynamic> ListarEspecialidades(string filtro_nombre = null) {
             var especialidades = EspecialidadSOA.ListarEspecialidades();
             if (filtro_nombre != null) {
                 especialidades = especialidades.Where(esp => esp.nombre.Contains(filtro_nombre));            

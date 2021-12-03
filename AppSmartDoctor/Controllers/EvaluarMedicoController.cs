@@ -42,5 +42,10 @@ namespace AppSmartDoctor.Controllers
             return CalificacionSOA.VerCalificacion(calificacionId);
         }
 
+        [HttpGet("InfoMedico/{medicoId}")]
+        public dynamic InfoMedico(int medicoId) {
+            return CalificacionSOA.InfoMedico(medicoId);
+        }
+
     }
 }

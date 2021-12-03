@@ -1,4 +1,5 @@
 ﻿using AppSmartDoctor.DataAccess;
+using AppSmartDoctor.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,18 @@ namespace AppSmartDoctor.Models
             }
         }
 
+        
+
+        //from especialidad in ctx.Especialidades
+        //join medico in ctx.Medicos on especialidad.especialidadId equals medico.especialidadId
+        //group especialidad by new { especialidad.especialidadId, especialidad.nombre, especialidad.descripcion } into grupo
+        //select new { 
+        //especialidadId = grupo.Key.especialidadId,
+        //nombre = grupo.Key.nombre,
+        //descripcion = grupo.Key.descripcion,
+        //cantidad_medicos = grupo.Count()
+        //};
+
         public static IEnumerable<Medico> ListarMedicos() {
             var ctx = new DataContext();
             var medicos = ctx.Medicos.ToList();
@@ -53,14 +66,31 @@ namespace AppSmartDoctor.Models
 
         public static dynamic VerPerfil(int medicoId) {
             var ctx = new DataContext();
-            var medico = ctx.Medicos.Find(medicoId);
+            var medico = (from m in ctx.Medicos
+                         join c in ctx.Consultorios on m.medicoId equals c.medicoId
+                         join e in ctx.Especialidades on m.especialidadId equals e.especialidadId
+                         where m.medicoId == medicoId
+                         select new MedicoPerfilDTO()
+                         {
+                             medicoId = m.medicoId,
+                             nombres = m.nombres,
+                             cmp = m.CMP,
+                             correo = m.correo,
+                             celular = m.celular,
+                             descripcion = m.descripcion,
+                             especialidad = e.nombre,
+                             tiempo_consulta = c.duracion,
+                             importe_consulta = c.importe
+                         }).SingleOrDefault();
             var experiencias = ctx.Experiencias.Where(exp => exp.medicoId == medicoId).ToList();
             var estudios = ctx.Estudios.Where(est => est.medicoId == medicoId).ToList();
+            double calificacion = CalificacionSOA.VerPromedioCalificacion(medicoId);
             return new
             {
                 medico,
                 experiencias,
-                estudios
+                estudios,
+                calificacion
             };
         }
 
