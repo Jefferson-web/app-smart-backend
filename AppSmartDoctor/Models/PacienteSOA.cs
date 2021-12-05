@@ -9,17 +9,8 @@ namespace AppSmartDoctor.Models
     public class PacienteSOA
     {
 
-        public static Paciente AdicionarPaciente(string nombres, string DNI, DateTime fecha_nacimiento, int edad, bool sexo, string distrito_colonia, string email, string contrasena) {
+        public static Paciente AdicionarPaciente(Paciente paciente) {
             var ctx = new DataContext();
-            var paciente = new Paciente();
-            paciente.nombres = nombres;
-            paciente.DNI = DNI;
-            paciente.fecha_nacimiento = fecha_nacimiento;
-            paciente.edad = edad;
-            paciente.sexo = sexo;
-            paciente.distrito_colonia = distrito_colonia;
-            paciente.email = email;
-            paciente.contrasena = contrasena;
             ctx.Add(paciente);
             ctx.SaveChanges();
             return paciente;

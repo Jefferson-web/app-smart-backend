@@ -1,6 +1,8 @@
 using AppSmartDoctor.DataAccess;
 using AppSmartDoctor.Interfaces;
+using AppSmartDoctor.Mapping;
 using AppSmartDoctor.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -57,6 +59,12 @@ namespace AppSmartDoctor
                         ValidateLifetime = true
                     };
                 });
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AppSmartDoctor", Version = "v1" });

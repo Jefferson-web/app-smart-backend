@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace AppSmartDoctor.Mapping
 {
-    public class SmProfile: Profile
+    public class MappingProfile: Profile
     {
-
-        public SmProfile() {
+        public MappingProfile() {
             CreateMap<Paciente, PacienteDTO>().ReverseMap();
         }
 

@@ -1,4 +1,6 @@
 ﻿using AppSmartDoctor.Models;
+using AppSmartDoctor.Models.ViewModel;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,14 +14,23 @@ namespace AppSmartDoctor.Controllers
     public class AfiliarPacienteController : ControllerBase
     {
 
+        private readonly IMapper _mapper;
+
         [HttpGet("ListarPacientes")]
         public IEnumerable<Paciente> ListarPacientes() {
             return PacienteSOA.ListarPacientes();
         }
 
         [HttpPost("AdicionarPaciente")]
-        public Paciente AdicionarPaciente(string nombres,string DNI,DateTime fecha_nacimiento,int edad,bool sexo,string distrito_colonia, string email,string contrasena) {
-            return PacienteSOA.AdicionarPaciente(nombres,DNI,fecha_nacimiento,edad,sexo,distrito_colonia, email, contrasena);
+        public ActionResult<Paciente> AdicionarPaciente(Paciente paciente) {
+            try
+            {
+                return PacienteSOA.AdicionarPaciente(paciente);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut("EditarPaciente/{pacienteId}")]
