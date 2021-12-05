@@ -14,7 +14,8 @@ namespace AppSmartDoctor.Migrations
                     especialidadId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    imagen = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -28,6 +29,8 @@ namespace AppSmartDoctor.Migrations
                     pacienteId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     nombres = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    contrasena = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DNI = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     fecha_nacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
                     edad = table.Column<int>(type: "int", nullable: false),
@@ -115,6 +118,35 @@ namespace AppSmartDoctor.Migrations
                         column: x => x.residenciaId,
                         principalTable: "Residencias",
                         principalColumn: "residenciaId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Calificaciones",
+                columns: table => new
+                {
+                    calificacionId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    medicoId = table.Column<int>(type: "int", nullable: false),
+                    pacienteId = table.Column<int>(type: "int", nullable: false),
+                    puntuacion = table.Column<double>(type: "float", nullable: false),
+                    comentario = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    fecha_registro = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Calificaciones", x => x.calificacionId);
+                    table.ForeignKey(
+                        name: "FK_Calificaciones_Medicos_medicoId",
+                        column: x => x.medicoId,
+                        principalTable: "Medicos",
+                        principalColumn: "medicoId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Calificaciones_Pacientes_pacienteId",
+                        column: x => x.pacienteId,
+                        principalTable: "Pacientes",
+                        principalColumn: "pacienteId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -386,6 +418,16 @@ namespace AppSmartDoctor.Migrations
                 column: "citaId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Calificaciones_medicoId",
+                table: "Calificaciones",
+                column: "medicoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Calificaciones_pacienteId",
+                table: "Calificaciones",
+                column: "pacienteId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Citas_medicoId",
                 table: "Citas",
                 column: "medicoId");
@@ -468,6 +510,9 @@ namespace AppSmartDoctor.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Archivos");
+
+            migrationBuilder.DropTable(
+                name: "Calificaciones");
 
             migrationBuilder.DropTable(
                 name: "Consultorios");

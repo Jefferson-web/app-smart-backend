@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppSmartDoctor.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20211115042106_dbset-calificaciones")]
-    partial class dbsetcalificaciones
+    [Migration("20211205165320_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -61,11 +61,14 @@ namespace AppSmartDoctor.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("comentario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("fecha_registro")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("medicoId")
                         .HasColumnType("int");
-
-                    b.Property<string>("motivo")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("pacienteId")
                         .HasColumnType("int");
@@ -207,6 +210,9 @@ namespace AppSmartDoctor.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("imagen")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("nombre")
@@ -386,11 +392,17 @@ namespace AppSmartDoctor.Migrations
                     b.Property<string>("DNI")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("contrasena")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("distrito_colonia")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("edad")
                         .HasColumnType("int");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("fecha_nacimiento")
                         .HasColumnType("datetime2");

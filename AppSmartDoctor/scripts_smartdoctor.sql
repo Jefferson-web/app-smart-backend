@@ -16,41 +16,41 @@ SET IDENTITY_INSERT [dbo].[TipoPago] OFF
 GO
 
 SET IDENTITY_INSERT [dbo].[Pacientes] ON
-INSERT [dbo].[Pacientes] ([pacienteId], [nombres], [DNI], [fecha_nacimiento], [edad], [sexo], [distrito_colonia]) VALUES (1, N'Jeffersons Ledesma', N'74867428', CAST(N'1999-04-16T00:00:00.0000000' AS DateTime2), 22, 1, N'La Victoria')
+INSERT [dbo].[Pacientes] ([pacienteId], [nombres], [DNI], [fecha_nacimiento], [edad], [sexo], [distrito_colonia], [contrasena], [email]) VALUES (1, N'Jeffersons Ledesma', N'74867428', CAST(N'1999-04-16T00:00:00.0000000' AS DateTime2), 22, 1, N'La Victoria', N'12345', N'jeffer_16_99@hotmail.com')
 SET IDENTITY_INSERT [dbo].[Pacientes] OFF
 GO
 
 SET IDENTITY_INSERT [dbo].[Especialidades] ON
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (1, N'Medicina General', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (2, N'Urologia Pediátrica', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (3, N'Urología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (4, N'Otorrinoraingología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (5, N'Oncología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (6, N'Oftalmología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (7, N'Odontología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (8, N'Neurología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (9, N'Neumologia Pediátrica', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (10, N'Neumología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (11, N'Medicina Interna', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (12, N'Medicina Física y Rehabilitación', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (13, N'Medicina Familiar y Comunitaria', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (14, N'Hermatología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (15, N'Ginecología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (16, N'Geriatría', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (17, N'Gestroenterología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (18, N'Fisioterapia', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (19, N'Endocrinologia Pediátrica', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (20, N'Dermatología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (21, N'Cirugia General', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (22, N'Cardiología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (23, N'Reumatología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (24, N'Nutrición', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (25, N'Endocrinología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (26, N'Pediatría', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (27, N'Psiquiatría', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (28, N'Psicología', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (29, N'Gestroenterologia Pediátrica', NULL);
-INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion]) VALUES (30, N'Neurocirugía', NULL);
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (1, N'Medicina General', NULL, N'https://i.ibb.co/n7RZ4Ms/Medicina-General.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (2, N'Urologia Pediátrica', NULL, N'https://i.ibb.co/HNx6f2n/Urologia-Pediatrica.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (3, N'Urología', NULL, N'https://i.ibb.co/Xpz0nz1/Urologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (4, N'Otorrinoraingología', NULL, N'https://i.ibb.co/166cjGT/Otorrinolaringologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (5, N'Oncología', NULL, N'https://i.ibb.co/bL0xV3Q/Oncologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (6, N'Oftalmología', NULL, N'https://i.ibb.co/Kwj5PgK/Oftalmologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (7, N'Odontología', NULL, N'https://i.ibb.co/BzpZBfY/Odontologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (8, N'Neurología', NULL, N'https://i.ibb.co/zbZ46Lk/Neurologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (9, N'Neumologia Pediátrica', NULL, N'https://i.ibb.co/8DcNWVt/Neumologiapediatrica.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (10, N'Neumología', NULL, N'https://i.ibb.co/PCDcCH5/Neumologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (11, N'Medicina Interna', NULL, N'https://i.ibb.co/n7RZ4Ms/Medicina-General.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (12, N'Medicina Física y Rehabilitación', NULL, N'https://i.ibb.co/LQkGSHy/Medicina-Fisicay-Rehabilitacion.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (13, N'Medicina Familiar y Comunitaria', NULL, N'https://i.ibb.co/NWJd0zG/Medicia-Familiary-Comunitaria.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (14, N'Hermatología', NULL, N'https://i.ibb.co/Rct9kj2/Hematologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (15, N'Ginecología', NULL, N'https://i.ibb.co/4fnCZyz/Ginecologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (16, N'Geriatría', NULL, N'https://i.ibb.co/128qKKh/Geriatria.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (17, N'Gestroenterología', NULL, N'https://i.ibb.co/fxYXL9H/Gastroentereologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (18, N'Fisioterapia', NULL, N'https://i.ibb.co/n3ZQT5R/Fisioterapia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (19, N'Endocrinologia Pediátrica', NULL, N'https://i.ibb.co/GVS3B17/endocrinologiapeditrica.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (20, N'Dermatología', NULL, N'https://i.ibb.co/VQq5TTX/Dermatologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (21, N'Cirugia General', NULL, N'https://i.ibb.co/99YSfK4/Cirujia-General.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (22, N'Cardiología', NULL, N'https://i.ibb.co/bFNDHfd/Cardiologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (23, N'Reumatología', NULL, N'https://i.ibb.co/yNwGmMX/Reemuatologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (24, N'Nutrición', NULL, N'https://i.ibb.co/vP6BmSy/Nutricion.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (25, N'Endocrinología', NULL, N'https://i.ibb.co/1R7LrBy/Endocrinologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (26, N'Pediatría', NULL, N'https://i.ibb.co/cYM3hPp/Pediatria.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (27, N'Psiquiatría', NULL, N'https://i.ibb.co/wyzhdsx/Psiquiatra.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (28, N'Psicología', NULL, N'https://i.ibb.co/3c9t7wF/Psicologia.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (29, N'Gestroenterologia Pediátrica', NULL, N'https://i.ibb.co/7YZ80B0/Gastroentereologia-Pediatrica.jpg')
+INSERT [dbo].[Especialidades] ([especialidadId], [nombre], [descripcion], [imagen]) VALUES (30, N'Neurocirugía', NULL, N'https://i.ibb.co/6bpKwSr/Neurocirujia.jpg')
 SET IDENTITY_INSERT [dbo].[Especialidades] OFF
 GO
 
@@ -114,53 +114,48 @@ SET IDENTITY_INSERT [dbo].[Consultorios] OFF
 GO
 
 SET IDENTITY_INSERT [dbo].[Horarios] ON
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (1, 1, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T08:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T08:45:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (2, 1, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T08:45:00.0000000' AS DateTime2), CAST(N'2021-11-17T09:30:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (3, 1, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T09:30:00.0000000' AS DateTime2), CAST(N'2021-11-17T10:15:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (4, 1, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T10:15:00.0000000' AS DateTime2), CAST(N'2021-11-17T11:00:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (5, 2, CAST(N'2021-11-16T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-16T12:00:00.0000000' AS DateTime2), CAST(N'2021-11-16T12:15:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (6, 2, CAST(N'2021-11-16T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-16T12:15:00.0000000' AS DateTime2), CAST(N'2021-11-16T12:30:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (7, 2, CAST(N'2021-11-16T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-16T12:30:00.0000000' AS DateTime2), CAST(N'2021-11-16T12:45:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (8, 2, CAST(N'2021-11-16T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-16T18:00:00.0000000' AS DateTime2), CAST(N'2021-11-16T18:15:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (9, 2, CAST(N'2021-11-16T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-16T18:15:00.0000000' AS DateTime2), CAST(N'2021-11-16T18:30:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (10, 2, CAST(N'2021-11-16T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-16T18:30:00.0000000' AS DateTime2), CAST(N'2021-11-16T18:45:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (11, 2, CAST(N'2021-11-16T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-16T18:45:00.0000000' AS DateTime2), CAST(N'2021-11-16T19:00:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (12, 3, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T08:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T08:20:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (13, 3, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T08:20:00.0000000' AS DateTime2), CAST(N'2021-11-17T08:40:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (14, 3, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T08:40:00.0000000' AS DateTime2), CAST(N'2021-11-17T09:00:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (15, 3, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T09:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T09:20:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (16, 3, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T09:20:00.0000000' AS DateTime2), CAST(N'2021-11-17T09:40:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (17, 3, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T09:40:00.0000000' AS DateTime2), CAST(N'2021-11-17T10:00:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (18, 3, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T10:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T10:20:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (19, 3, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T10:20:00.0000000' AS DateTime2), CAST(N'2021-11-17T10:40:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (20, 3, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T10:40:00.0000000' AS DateTime2), CAST(N'2021-11-17T11:00:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (21, 4, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T10:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T10:45:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (22, 4, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T10:45:00.0000000' AS DateTime2), CAST(N'2021-11-18T11:30:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (23, 4, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T11:30:00.0000000' AS DateTime2), CAST(N'2021-11-18T12:15:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (24, 5, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T08:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T08:30:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (25, 5, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T08:30:00.0000000' AS DateTime2), CAST(N'2021-11-18T09:00:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (26, 5, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T09:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T09:30:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (27, 5, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T09:30:00.0000000' AS DateTime2), CAST(N'2021-11-18T10:00:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (28, 5, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T10:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T10:30:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (29, 5, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T10:30:00.0000000' AS DateTime2), CAST(N'2021-11-18T11:00:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (30, 6, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T15:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T15:20:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (31, 6, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T15:20:00.0000000' AS DateTime2), CAST(N'2021-11-18T15:40:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (32, 6, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T15:40:00.0000000' AS DateTime2), CAST(N'2021-11-18T16:00:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (33, 6, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T16:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T16:20:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (34, 6, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T16:20:00.0000000' AS DateTime2), CAST(N'2021-11-18T16:40:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (35, 6, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T16:40:00.0000000' AS DateTime2), CAST(N'2021-11-18T17:00:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (36, 6, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T17:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T17:20:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (37, 6, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T17:20:00.0000000' AS DateTime2), CAST(N'2021-11-18T17:40:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (38, 6, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T17:40:00.0000000' AS DateTime2), CAST(N'2021-11-18T18:00:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (39, 6, CAST(N'2021-11-18T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T18:00:00.0000000' AS DateTime2), CAST(N'2021-11-18T18:20:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (40, 6, CAST(N'2021-11-19T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-19T08:00:00.0000000' AS DateTime2), CAST(N'2021-11-19T08:20:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (41, 6, CAST(N'2021-11-19T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-19T08:20:00.0000000' AS DateTime2), CAST(N'2021-11-19T08:40:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (42, 6, CAST(N'2021-11-19T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-19T08:40:00.0000000' AS DateTime2), CAST(N'2021-11-19T09:00:00.0000000' AS DateTime2), 1);
-INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (43, 6, CAST(N'2021-11-19T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-19T09:00:00.0000000' AS DateTime2), CAST(N'2021-11-19T09:20:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (1, 1, CAST(N'2021-12-07T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T08:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T08:45:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (2, 1, CAST(N'2021-12-07T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T08:45:00.0000000' AS DateTime2), CAST(N'2021-12-07T09:30:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (3, 1, CAST(N'2021-12-07T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T09:30:00.0000000' AS DateTime2), CAST(N'2021-12-07T10:15:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (4, 1, CAST(N'2021-12-07T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T10:15:00.0000000' AS DateTime2), CAST(N'2021-12-07T11:00:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (5, 2, CAST(N'2021-12-06T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-06T12:00:00.0000000' AS DateTime2), CAST(N'2021-12-06T12:15:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (6, 2, CAST(N'2021-12-06T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-06T12:15:00.0000000' AS DateTime2), CAST(N'2021-12-06T12:30:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (7, 2, CAST(N'2021-12-06T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-06T12:30:00.0000000' AS DateTime2), CAST(N'2021-12-06T12:45:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (8, 2, CAST(N'2021-12-06T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-06T18:00:00.0000000' AS DateTime2), CAST(N'2021-12-06T18:15:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (9, 2, CAST(N'2021-12-06T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-06T18:15:00.0000000' AS DateTime2), CAST(N'2021-12-06T18:30:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (10, 2, CAST(N'2021-12-06T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-06T18:30:00.0000000' AS DateTime2), CAST(N'2021-12-06T18:45:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (11, 2, CAST(N'2021-12-06T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-06T18:45:00.0000000' AS DateTime2), CAST(N'2021-12-06T19:00:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (12, 3, CAST(N'2021-12-07T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T08:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T08:20:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (13, 3, CAST(N'2021-12-07T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T08:20:00.0000000' AS DateTime2), CAST(N'2021-12-07T08:40:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (14, 3, CAST(N'2021-12-07T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T08:40:00.0000000' AS DateTime2), CAST(N'2021-12-07T09:00:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (15, 3, CAST(N'2021-12-07T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T09:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T09:20:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (16, 3, CAST(N'2021-12-07T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T09:20:00.0000000' AS DateTime2), CAST(N'2021-12-07T09:40:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (17, 3, CAST(N'2021-12-07T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T09:40:00.0000000' AS DateTime2), CAST(N'2021-12-07T10:00:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (18, 3, CAST(N'2021-12-07T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T10:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T10:20:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (19, 3, CAST(N'2021-12-07T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T10:20:00.0000000' AS DateTime2), CAST(N'2021-12-07T10:40:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (20, 3, CAST(N'2021-12-07T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-07T10:40:00.0000000' AS DateTime2), CAST(N'2021-12-07T11:00:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (21, 4, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T10:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T10:45:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (22, 4, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T10:45:00.0000000' AS DateTime2), CAST(N'2021-12-08T11:30:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (23, 4, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T11:30:00.0000000' AS DateTime2), CAST(N'2021-12-08T12:15:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (24, 5, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T08:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T08:30:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (25, 5, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T08:30:00.0000000' AS DateTime2), CAST(N'2021-12-08T09:00:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (26, 5, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T09:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T09:30:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (27, 5, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T09:30:00.0000000' AS DateTime2), CAST(N'2021-12-08T10:00:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (28, 5, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T10:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T10:30:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (29, 5, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T10:30:00.0000000' AS DateTime2), CAST(N'2021-12-08T11:00:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (30, 6, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T15:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T15:20:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (31, 6, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T15:20:00.0000000' AS DateTime2), CAST(N'2021-12-08T15:40:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (32, 6, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T15:40:00.0000000' AS DateTime2), CAST(N'2021-12-08T16:00:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (33, 6, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T16:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T16:20:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (34, 6, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T16:20:00.0000000' AS DateTime2), CAST(N'2021-12-08T16:40:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (35, 6, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T16:40:00.0000000' AS DateTime2), CAST(N'2021-12-08T17:00:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (36, 6, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T17:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T17:20:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (37, 6, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T17:20:00.0000000' AS DateTime2), CAST(N'2021-12-08T17:40:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (38, 6, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T17:40:00.0000000' AS DateTime2), CAST(N'2021-12-08T18:00:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (39, 6, CAST(N'2021-12-08T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T18:00:00.0000000' AS DateTime2), CAST(N'2021-12-08T18:20:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (40, 6, CAST(N'2021-12-09T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-09T08:00:00.0000000' AS DateTime2), CAST(N'2021-12-09T08:20:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (41, 6, CAST(N'2021-12-09T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-09T08:20:00.0000000' AS DateTime2), CAST(N'2021-12-09T08:40:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (42, 6, CAST(N'2021-12-09T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-09T08:40:00.0000000' AS DateTime2), CAST(N'2021-12-09T09:00:00.0000000' AS DateTime2), 1);
+INSERT [dbo].[Horarios] ([horarioId], [medicoId], [fecha], [hora_inicio], [hora_fin], [disponible]) VALUES (43, 6, CAST(N'2021-12-09T00:00:00.0000000' AS DateTime2), CAST(N'2021-12-09T09:00:00.0000000' AS DateTime2), CAST(N'2021-12-09T09:20:00.0000000' AS DateTime2), 1);
 SET IDENTITY_INSERT [dbo].[Horarios] OFF
-GO
-
-SET IDENTITY_INSERT [dbo].[Citas] ON 
-INSERT [dbo].[Citas] ([citaId], [medicoId], [pacienteId], [fecha], [hora_inicio], [hora_fin], [motivo], [costo], [pagado], [atendido], [fecha_registro]) VALUES (1, 1, 1, CAST(N'2021-11-17T00:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T08:00:00.0000000' AS DateTime2), CAST(N'2021-11-17T08:45:00.0000000' AS DateTime2), N'Dolor de cabeza', 80, 0, 0, CAST(N'2021-11-14T21:49:21.4390438' AS DateTime2))
-SET IDENTITY_INSERT [dbo].[Citas] OFF
 GO
