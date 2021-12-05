@@ -33,5 +33,10 @@ namespace AppSmartDoctor.Controllers
             return HorarioSOA.MisHorarios(medicoId);
         }
 
+        [HttpGet("VerHorario/{horarioId:int}")]
+        public dynamic VerHorario(int horarioId) {
+            return HorarioSOA.VerHorario(horarioId);
+        }
+
     }
 }

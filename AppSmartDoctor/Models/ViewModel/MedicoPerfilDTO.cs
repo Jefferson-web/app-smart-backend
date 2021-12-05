@@ -14,6 +14,7 @@ namespace AppSmartDoctor.Models.ViewModel
         public string celular { get; set; }
         public string descripcion { get; set; }
         public string especialidad { get; set; }
+        public int especialidadId { get; set; }
         public int tiempo_consulta { get; set; }
         public double importe_consulta { get; set; }
         public double promedio_calificacion { get; set; }

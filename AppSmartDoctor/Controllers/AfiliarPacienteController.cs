@@ -18,8 +18,8 @@ namespace AppSmartDoctor.Controllers
         }
 
         [HttpPost("AdicionarPaciente")]
-        public Paciente AdicionarPaciente(string nombres,string DNI,DateTime fecha_nacimiento,int edad,bool sexo,string distrito_colonia) {
-            return PacienteSOA.AdicionarPaciente(nombres,DNI,fecha_nacimiento,edad,sexo,distrito_colonia);
+        public Paciente AdicionarPaciente(string nombres,string DNI,DateTime fecha_nacimiento,int edad,bool sexo,string distrito_colonia, string email,string contrasena) {
+            return PacienteSOA.AdicionarPaciente(nombres,DNI,fecha_nacimiento,edad,sexo,distrito_colonia, email, contrasena);
         }
 
         [HttpPut("EditarPaciente/{pacienteId}")]

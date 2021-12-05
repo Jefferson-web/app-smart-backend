@@ -44,5 +44,22 @@ namespace AppSmartDoctor.Models
             return horarios;
         }
 
+        public static dynamic VerHorario(int horarioId) {
+            var ctx = new DataContext();
+            var horario = (from h in ctx.Horarios
+                           where h.horarioId == horarioId
+                           select new
+                           {
+                               horarioId = h.horarioId,
+                               medicoId = h.medicoId,
+                               fecha = h.fecha,
+                               hora_inicio = h.hora_inicio,
+                               hora_fin = h.hora_fin,
+                               disponible = h.disponible,
+                               duracion = (h.hora_fin - h.hora_inicio).Minutes
+                           }).FirstOrDefault();
+            return horario;
+        }
+
     }
 }

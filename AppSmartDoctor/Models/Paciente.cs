@@ -11,6 +11,8 @@ namespace AppSmartDoctor.Models
         [Key]
         public int pacienteId { get; set; }
         public string nombres { get; set; }
+        public string email { get; set; }
+        public string contrasena { get; set; }
         public string DNI { get; set; }
         [DataType(DataType.Date)]
         public DateTime fecha_nacimiento { get; set; }

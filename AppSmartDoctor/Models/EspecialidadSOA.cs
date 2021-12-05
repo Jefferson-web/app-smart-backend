@@ -13,11 +13,12 @@ namespace AppSmartDoctor.Models
             var ctx = new DataContext();
             var especialidades = from especialidad in ctx.Especialidades
                                  join medico in ctx.Medicos on especialidad.especialidadId equals medico.especialidadId
-                                 group especialidad by new { especialidad.especialidadId, especialidad.nombre, especialidad.descripcion } into grupo
+                                 group especialidad by new { especialidad.especialidadId, especialidad.nombre, especialidad.descripcion, especialidad.imagen } into grupo
                                  select new { 
                                     especialidadId = grupo.Key.especialidadId,
                                     nombre = grupo.Key.nombre,
                                     descripcion = grupo.Key.descripcion,
+                                    imagen = grupo.Key.imagen,
                                     cantidad_medicos = grupo.Count()
                                  };
             return especialidades;

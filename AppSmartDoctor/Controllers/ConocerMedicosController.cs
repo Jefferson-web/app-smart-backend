@@ -23,7 +23,7 @@ namespace AppSmartDoctor.Controllers
         }
 
         [HttpGet("ListarMedicos")]
-        public IEnumerable<Medico> ListarMedicos(string filtro_nombre = null, int? especialidadId = null) {
+        public IEnumerable<dynamic> ListarMedicos(string filtro_nombre = null, int? especialidadId = null) {
             var medicos = MedicoSOA.ListarMedicos();
             // Aplicando filtros
             if (filtro_nombre != null) {

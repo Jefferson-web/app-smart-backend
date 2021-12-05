@@ -46,7 +46,7 @@ namespace AppSmartDoctor.Models
             }
         }
 
-        
+
 
         //from especialidad in ctx.Especialidades
         //join medico in ctx.Medicos on especialidad.especialidadId equals medico.especialidadId
@@ -58,9 +58,21 @@ namespace AppSmartDoctor.Models
         //cantidad_medicos = grupo.Count()
         //};
 
-        public static IEnumerable<Medico> ListarMedicos() {
+        public static IEnumerable<dynamic> ListarMedicos() {
             var ctx = new DataContext();
-            var medicos = ctx.Medicos.ToList();
+            var medicos = from m in ctx.Medicos
+                          join e in ctx.Especialidades on m.especialidadId equals e.especialidadId
+                          select new {
+                              celular = m.celular,
+                              cmp = m.CMP,
+                              correo = m.correo,
+                              descripcion = m.descripcion,
+                              especialidadId = m.especialidadId,
+                              especialidad = e.nombre,
+                              medicoId = m.medicoId,
+                              nombres = m.nombres,
+                              residenciaId = m.residenciaId
+                          };
             return medicos;
         }
 
@@ -79,6 +91,7 @@ namespace AppSmartDoctor.Models
                              celular = m.celular,
                              descripcion = m.descripcion,
                              especialidad = e.nombre,
+                             especialidadId = e.especialidadId,
                              tiempo_consulta = c.duracion,
                              importe_consulta = c.importe
                          }).SingleOrDefault();
