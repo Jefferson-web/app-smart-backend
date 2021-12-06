@@ -9,18 +9,24 @@ namespace AppSmartDoctor.Models
     public class CalificacionSOA
     {
 
-        public static Calificacion Calificar(int pacienteId, int medicoId, double puntuacion, string comentario)
+        public static dynamic Calificar(Calificacion calificacion)
         {
             var ctx = new DataContext();
-            var calificacion = new Calificacion();
-            calificacion.pacienteId = pacienteId;
-            calificacion.medicoId = medicoId;
-            calificacion.puntuacion = puntuacion;
-            calificacion.comentario = comentario;
             calificacion.fecha_registro = DateTime.Now;
             ctx.Calificaciones.Add(calificacion);
             ctx.SaveChanges();
-            return calificacion;
+            var calificacionCreada = (from c in ctx.Calificaciones
+                                 join paciente in ctx.Pacientes on calificacion.pacienteId equals paciente.pacienteId
+                                 where c.calificacionId == calificacion.calificacionId
+                                 select new
+                                 {
+                                     calificacionId = c.calificacionId,
+                                     paciente = paciente.nombres,
+                                     puntuacion = c.puntuacion,
+                                     comentario = c.comentario,
+                                     fecha = c.fecha_registro
+                                 }).FirstOrDefault();
+            return calificacionCreada;
         }
 
         public static Calificacion EditarComentario(int calificacionId, string comentario) {
@@ -50,8 +56,9 @@ namespace AppSmartDoctor.Models
                                   where calificacion.medicoId == medicoId
                                   select new
                                   {
+                                      calificacionId = calificacion.calificacionId,
                                       paciente = paciente.nombres,
-                                      calificacion = calificacion.puntuacion,
+                                      puntuacion = calificacion.puntuacion,
                                       comentario = calificacion.comentario,
                                       fecha = calificacion.fecha_registro
                                   }).ToList();

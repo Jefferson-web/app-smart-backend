@@ -13,11 +13,11 @@ namespace AppSmartDoctor.Controllers
     public class EvaluarMedicoController : ControllerBase
     {
         [HttpPost("CalificarMedico")]
-        public Calificacion CalificarMedico(int pacienteId, int medicoId, double puntuacion, string comentario) {
-            return CalificacionSOA.Calificar(pacienteId,medicoId,puntuacion,comentario);
+        public dynamic CalificarMedico(Calificacion calificacion) {
+            return CalificacionSOA.Calificar(calificacion);
         }
 
-        [HttpPut("EditarComentario")]
+        [HttpGet("EditarComentario")]
         public Calificacion EditarComentario(int calificacionId, string comentario) {
             return CalificacionSOA.EditarComentario(calificacionId, comentario);
         }
