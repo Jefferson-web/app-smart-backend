@@ -9,12 +9,9 @@ namespace AppSmartDoctor.Models
     public class IndicacionSOA
     {
 
-        public static Indicacion RegistrarIndicacion(int citaId, string descripcion)
+        public static Indicacion RegistrarIndicacion(Indicacion indicacion)
         {
             var ctx = new DataContext();
-            var indicacion = new Indicacion();
-            indicacion.citaId = citaId;
-            indicacion.descripcion = descripcion;
             ctx.Indicaciones.Add(indicacion);
             ctx.SaveChanges();
             return indicacion;

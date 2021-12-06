@@ -8,6 +8,7 @@ namespace AppSmartDoctor.Interfaces
 {
     public interface ITokenService
     {
-        public String CreateToken(Paciente paciente);
+        public string CreateToken(Paciente paciente);
+        public string CreateTokenMedico(dynamic medico);
     }
 }

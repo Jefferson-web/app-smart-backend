@@ -9,18 +9,9 @@ namespace AppSmartDoctor.Models
     public class PagoSOA
     {
 
-        public static Pago RealizarPago(int tipoPagoId, int citaId, string nombreTarjeta, string numeroTarjeta, string expiracion, string cvv) {
+        public static Pago RealizarPago(Pago pago) {
             var ctx = new DataContext();
-            var cita = ctx.Citas.Find(citaId);
-
-            var pago = new Pago();
-            pago.tipoPagoId = tipoPagoId;
-            pago.citaId = citaId;
-            pago.monto = cita.costo;
-            pago.nombreTarjeta = nombreTarjeta;
-            pago.numeroTarjeta = numeroTarjeta;
-            pago.expiracion = expiracion;
-            pago.cvv = cvv;
+            var cita = ctx.Citas.Find(pago.citaId);
             pago.fecha_pago = DateTime.Now;
             ctx.Pagos.Add(pago);
             ctx.SaveChanges();

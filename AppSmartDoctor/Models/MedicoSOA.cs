@@ -10,16 +10,8 @@ namespace AppSmartDoctor.Models
     public class MedicoSOA
     {
 
-        public static Medico RegistrarMedico(int especialidadId,int residenciaId,string nombres,string CMP,string celular,string correo,string descripcion) {
+        public static Medico RegistrarMedico(Medico medico) {
             var ctx = new DataContext();
-            var medico = new Medico();
-            medico.especialidadId = especialidadId;
-            medico.residenciaId = residenciaId;
-            medico.nombres = nombres;
-            medico.CMP = CMP;
-            medico.celular = celular;
-            medico.correo = correo;
-            medico.descripcion = descripcion;
             ctx.Medicos.Add(medico);
             ctx.SaveChanges();
             return medico;
@@ -35,7 +27,6 @@ namespace AppSmartDoctor.Models
                 medico_a_actualizar.residenciaId = residenciaId;
                 medico_a_actualizar.CMP = CMP;
                 medico_a_actualizar.celular = celular;
-                medico_a_actualizar.correo = correo;
                 medico_a_actualizar.descripcion = descripcion;
                 ctx.Medicos.Update(medico_a_actualizar);
                 ctx.SaveChanges();
@@ -46,6 +37,11 @@ namespace AppSmartDoctor.Models
             }
         }
 
+        public static IEnumerable<Especialidad> ListarTodasLasEspecialidades() {
+            var ctx = new DataContext();
+            var especialidades = ctx.Especialidades.ToList();
+            return especialidades;
+        }
 
 
         //from especialidad in ctx.Especialidades
@@ -65,7 +61,6 @@ namespace AppSmartDoctor.Models
                           select new {
                               celular = m.celular,
                               cmp = m.CMP,
-                              correo = m.correo,
                               descripcion = m.descripcion,
                               especialidadId = m.especialidadId,
                               especialidad = e.nombre,
@@ -87,7 +82,6 @@ namespace AppSmartDoctor.Models
                              medicoId = m.medicoId,
                              nombres = m.nombres,
                              cmp = m.CMP,
-                             correo = m.correo,
                              celular = m.celular,
                              descripcion = m.descripcion,
                              especialidad = e.nombre,

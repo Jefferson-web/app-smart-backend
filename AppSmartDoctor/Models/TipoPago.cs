@@ -11,5 +11,6 @@ namespace AppSmartDoctor.Models
         [Key]
         public int tipoPagoId { get; set; }
         public string tipo { get; set; }
+        public string icono { get; set; }
     }
 }

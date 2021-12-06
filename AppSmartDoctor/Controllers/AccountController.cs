@@ -43,5 +43,48 @@ namespace AppSmartDoctor.Controllers
                 token = jwt_token
             };
         }
+
+        [HttpPost("LoginMedico")]
+        public ActionResult<MedicoLoginResponse> LoginMedico(LoginDTO loginDto) {
+            DataContext ctx = new DataContext();
+            var medico = (from m in ctx.Medicos
+                          join e in ctx.Especialidades
+                          on m.especialidadId equals e.especialidadId
+                          where m.email == loginDto.email
+                          select new
+                          {
+                              celular = m.celular,
+                              cmp = m.CMP,
+                              contrasena = m.contrasena,
+                              descripcion = m.descripcion,
+                              edad = m.edad,
+                              email = m.email,
+                              especialidadId = m.especialidadId,
+                              especialidad = e.nombre,
+                              medicoId = m.medicoId,
+                              nombres = m.nombres,
+                              residenciaId = m.residenciaId,
+                              sexo = m.sexo
+                          }).FirstOrDefault();
+
+            if (medico == null)
+            {
+                return Unauthorized("Credenciales invalidas.");
+            }
+
+            if (medico.contrasena != loginDto.contrasena)
+            {
+                return Unauthorized("Credenciales invalidas.");
+            }
+
+            string jwt_token = _tokenService.CreateTokenMedico(medico);
+            return new MedicoLoginResponse()
+            {
+                medico = medico,
+                token = jwt_token
+            };
+        }
+
+
     }
 }

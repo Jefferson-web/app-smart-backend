@@ -11,14 +11,24 @@ namespace AppSmartDoctor.Controllers
     [Route("api/[controller]")]
     public class GestionarAtencionesController : ControllerBase
     {
-        [HttpGet("ListarCitas")]
-        public IEnumerable<Cita> ListarCitas(int medicoId) {
-            return CitaSOA.ListarCitas(medicoId);
+        [HttpGet("ListarCitas/{medicoId}")]
+        public IEnumerable<dynamic> ListarCitasAgendadas(int medicoId) {
+            return CitaSOA.ListarCitasAgendadas(medicoId);
+        }
+
+        [HttpGet("ListarCitasPaciente/{pacienteId}")]
+        public IEnumerable<dynamic> ListarCitasPaciente(int pacienteId) {
+            return CitaSOA.ListarCitasPaciente(pacienteId);
         }
 
         [HttpPost("MarcarComoAtendido/{citaId:int}")]
         public Cita MarcarComoAtendido(int citaId) {
             return CitaSOA.MarcarComoAtendido(citaId);
+        }
+
+        [HttpGet("RegistroPacientes/{medicoId}")]
+        public IEnumerable<dynamic> RegistroPacientes(int medicoId) {
+            return CitaSOA.RegistroPacientes(medicoId);
         }
 
         [HttpGet("VerDetalles/{citaId}")]

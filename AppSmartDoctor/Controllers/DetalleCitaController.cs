@@ -12,9 +12,9 @@ namespace AppSmartDoctor.Controllers
     public class DetalleCitaController : ControllerBase
     {
         [HttpPost("RegistrarReceta")]
-        public Receta RegistrarReceta(int citaId, string nombre_medicamento, int cantidad, string frecuencia, int horas, string observacion)
+        public Receta RegistrarReceta(Receta receta)
         {
-            return RecetaSOA.RegistrarReceta(citaId,nombre_medicamento,cantidad,frecuencia,horas,observacion);
+            return RecetaSOA.RegistrarReceta(receta);
         }
 
         [HttpGet("ListarRecetas/{citaId}")]
@@ -31,8 +31,8 @@ namespace AppSmartDoctor.Controllers
         // DIAGNOSTICOS
 
         [HttpPost("RegistrarDiagnostico")]
-        public Diagnostico RegistrarDiagnostico(int citaId, string descripcion) {
-            return DiagnosticoSOA.RegistrarDiagnostico(citaId, descripcion);
+        public Diagnostico RegistrarDiagnostico(Diagnostico diagnostico) {
+            return DiagnosticoSOA.RegistrarDiagnostico(diagnostico);
         }
 
         [HttpGet("ListarDiagnosticos/{citaId}")]
@@ -48,9 +48,9 @@ namespace AppSmartDoctor.Controllers
         // INDICACIONES
 
         [HttpPost("RegistrarIndicacion")]
-        public Indicacion RegistrarIndicacion(int citaId, string descripcion)
+        public Indicacion RegistrarIndicacion(Indicacion indicacion)
         {
-            return IndicacionSOA.RegistrarIndicacion(citaId, descripcion);
+            return IndicacionSOA.RegistrarIndicacion(indicacion);
         }
 
         [HttpGet("ListarIndicaciones/{citaId}")]

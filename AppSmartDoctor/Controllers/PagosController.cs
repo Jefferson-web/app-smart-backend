@@ -19,11 +19,11 @@ namespace AppSmartDoctor.Controllers
         }
 
         [HttpPost("RegistrarPago")]
-        public Pago RegistrarPago(int tipoPagoId,int citaId, string nombreTarjeta, string numeroTarjeta, string expiracion, string cvv) {
-            return PagoSOA.RealizarPago(tipoPagoId,citaId,nombreTarjeta,numeroTarjeta,expiracion,cvv);
+        public Pago RegistrarPago(Pago pago) {
+            return PagoSOA.RealizarPago(pago);
         }
 
-        [HttpGet("ListarPagos")]
+        [HttpGet("ListarPagos/{pacienteId}")]
         public IEnumerable<Pago> ListarPagos(int pacienteId) {
             return PagoSOA.ListarPagos(pacienteId);
         }

@@ -12,6 +12,7 @@ namespace AppSmartDoctor.Mapping
     {
         public MappingProfile() {
             CreateMap<Paciente, PacienteDTO>().ReverseMap();
+            CreateMap<Cita, CitaDTO>().ReverseMap();
         }
 
     }

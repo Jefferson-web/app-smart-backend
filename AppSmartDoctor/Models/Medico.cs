@@ -15,7 +15,10 @@ namespace AppSmartDoctor.Models
         public string nombres { get; set; }
         public string CMP { get; set; }
         public string celular { get; set; }
-        public string correo { get; set; }
         public string descripcion { get; set; }
+        public bool sexo { get; set; }
+        public int edad { get; set; }
+        public string email { get; set; }
+        public string contrasena { get; set; }
     }
 }

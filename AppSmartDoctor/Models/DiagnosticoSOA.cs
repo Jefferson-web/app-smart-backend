@@ -9,11 +9,8 @@ namespace AppSmartDoctor.Models
     public class DiagnosticoSOA
     {
 
-        public static Diagnostico RegistrarDiagnostico(int citaId, string descripcion) {
+        public static Diagnostico RegistrarDiagnostico(Diagnostico diagnostico) {
             var ctx = new DataContext();
-            var diagnostico = new Diagnostico();
-            diagnostico.citaId = citaId;
-            diagnostico.descripcion = descripcion;
             ctx.Diagnosticos.Add(diagnostico);
             ctx.SaveChanges();
             return diagnostico;

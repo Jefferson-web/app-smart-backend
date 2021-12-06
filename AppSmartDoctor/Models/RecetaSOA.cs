@@ -9,16 +9,9 @@ namespace AppSmartDoctor.Models
     public class RecetaSOA
     {
 
-        public static Receta RegistrarReceta(int citaId, string nombre_medicamento, int cantidad, string frecuencia, int horas, string observacion)
+        public static Receta RegistrarReceta(Receta receta)
         {
             var ctx = new DataContext();
-            var receta = new Receta();
-            receta.citaId = citaId;
-            receta.nombre_medicamento = nombre_medicamento;
-            receta.cantidad = cantidad;
-            receta.frecuencia = frecuencia;
-            receta.horas = horas;
-            receta.observacion = observacion;
             ctx.Recetas.Add(receta);
             ctx.SaveChanges();
             return receta;

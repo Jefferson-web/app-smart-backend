@@ -9,9 +9,9 @@ SET IDENTITY_INSERT [dbo].[Residencias] OFF
 GO
 
 SET IDENTITY_INSERT [dbo].[TipoPago] ON
-INSERT [dbo].[TipoPago] ([tipoPagoId], [tipo]) VALUES (1, N'Otros medios de pago')
-INSERT [dbo].[TipoPago] ([tipoPagoId], [tipo]) VALUES (2, N'Tengo un código de pago')
-INSERT [dbo].[TipoPago] ([tipoPagoId], [tipo]) VALUES (3, N'Pagar con Tarjeta')
+INSERT [dbo].[TipoPago] ([tipoPagoId], [tipo], [icono]) VALUES (1, N'Pagar con tarjeta', N'fas fa-credit-card')
+INSERT [dbo].[TipoPago] ([tipoPagoId], [tipo], [icono]) VALUES (2, N'Tengo un código de pago', N'fas fa-address-card')
+INSERT [dbo].[TipoPago] ([tipoPagoId], [tipo], [icono]) VALUES (3, N'Otros medios de pago', N'fas fa-wallet')
 SET IDENTITY_INSERT [dbo].[TipoPago] OFF
 GO
 
@@ -55,12 +55,12 @@ SET IDENTITY_INSERT [dbo].[Especialidades] OFF
 GO
 
 SET IDENTITY_INSERT [dbo].[Medicos] ON
-INSERT [dbo].[Medicos] ([medicoId], [especialidadId], [residenciaId], [nombres], [CMP], [celular], [correo], [descripcion]) VALUES (1, 24, 3, N'Valia Aparicio', N'763826', N'965738261', N'valia@hotmail.com', N'Enfermedades cronicas (diabetes, dislipidemias, hta) Obesidad, gastritis, nutrición para aumento de peso o masa muscular.');
-INSERT [dbo].[Medicos] ([medicoId], [especialidadId], [residenciaId], [nombres], [CMP], [celular], [correo], [descripcion]) VALUES (2, 1, 3, N'Cindy Benites', N'567243', N'965384521', N'cbenites@hotmail.com', N'Enfermedades cronicas no transmitibles como hipertension arterial, diabetes mellitus y sus complicaciones (Insuficiencia renal cronica con o sin diálisis).');
-INSERT [dbo].[Medicos] ([medicoId], [especialidadId], [residenciaId], [nombres], [CMP], [celular], [correo], [descripcion]) VALUES (3, 24, 3, N'Cindy Castro', N'675281', N'967546281', N'ccastro@hotmail.com', N'Sobreoeso, obesidad, diabetes, dislipedimias, hipertensión, entre otros.');
-INSERT [dbo].[Medicos] ([medicoId], [especialidadId], [residenciaId], [nombres], [CMP], [celular], [correo], [descripcion]) VALUES (4, 1, 3, N'Petrolina Castro', N'847221', N'993672182', N'pcastro@hotmail.com', N'Atención Integral en Salud - Problemas médicos en general - Enfermedades transmitibles - Enfermedades crónicas no transmitibles - Salud Mental - Lenguaje de señas para sordomudos.');
-INSERT [dbo].[Medicos] ([medicoId], [especialidadId], [residenciaId], [nombres], [CMP], [celular], [correo], [descripcion]) VALUES (5, 28, 3, N'Abraham Deus', N'765301', N'996378213', N'adeus@hotmail.com', N'Abordaje psicoterapéutico del Duelo Migratorio Psicoterapia Infantil y Juvenil, Terapia ABA para el abordaje de niños con Autismo. TDAH Sindrome de Down, Psicoterapia del adulto. Terapia centrada en el logro de objetivos y metas, fortalecimiento del autoestima y autoconcepto.');
-INSERT [dbo].[Medicos] ([medicoId], [especialidadId], [residenciaId], [nombres], [CMP], [celular], [correo], [descripcion]) VALUES (6, 20, 3, N'Monica Gutierrez Cruz', N'736293', N'987674231', N'mcruz@hotmail.com', N'Dermatología clínica, estética y láser.')
+INSERT [dbo].[Medicos] ([medicoId], [especialidadId], [residenciaId], [nombres], [CMP], [celular], [descripcion], [edad], [sexo], [contrasena], [email]) VALUES (1, 24, 3, N'Valia Aparicio', N'763826', N'965738261', N'Enfermedades cronicas (diabetes, dislipidemias, hta) Obesidad, gastritis, nutrición para aumento de peso o masa muscular.', 38, 0, N'12345', N'valia@hotmail.com')
+INSERT [dbo].[Medicos] ([medicoId], [especialidadId], [residenciaId], [nombres], [CMP], [celular], [descripcion], [edad], [sexo], [contrasena], [email]) VALUES (2, 1, 3, N'Cindy Benites', N'567243', N'965384521', N'Enfermedades cronicas no transmitibles como hipertension arterial, diabetes mellitus y sus complicaciones (Insuficiencia renal cronica con o sin diálisis).', 25, 0, N'12345', N'cindy@hotmail.com')
+INSERT [dbo].[Medicos] ([medicoId], [especialidadId], [residenciaId], [nombres], [CMP], [celular], [descripcion], [edad], [sexo], [contrasena], [email]) VALUES (3, 24, 3, N'Cindy Castro', N'675281', N'967546281', N'Sobreoeso, obesidad, diabetes, dislipedimias, hipertensión, entre otros.', 32, 0, N'12345', N'cindycastro@hotmail.com')
+INSERT [dbo].[Medicos] ([medicoId], [especialidadId], [residenciaId], [nombres], [CMP], [celular], [descripcion], [edad], [sexo], [contrasena], [email]) VALUES (4, 1, 3, N'Petrolina Castro', N'847221', N'993672182', N'Atención Integral en Salud - Problemas médicos en general - Enfermedades transmitibles - Enfermedades crónicas no transmitibles - Salud Mental - Lenguaje de señas para sordomudos.', 40, 0, N'12345', N'petrolina@hotmail.com')
+INSERT [dbo].[Medicos] ([medicoId], [especialidadId], [residenciaId], [nombres], [CMP], [celular], [descripcion], [edad], [sexo], [contrasena], [email]) VALUES (5, 28, 3, N'Abraham Deus', N'765301', N'996378213', N'Abordaje psicoterapéutico del Duelo Migratorio Psicoterapia Infantil y Juvenil, Terapia ABA para el abordaje de niños con Autismo. TDAH Sindrome de Down, Psicoterapia del adulto. Terapia centrada en el logro de objetivos y metas, fortalecimiento del autoestima y autoconcepto.', 28, 1, N'12345', N'abraham@hotmail.com')
+INSERT [dbo].[Medicos] ([medicoId], [especialidadId], [residenciaId], [nombres], [CMP], [celular], [descripcion], [edad], [sexo], [contrasena], [email]) VALUES (6, 20, 3, N'Monica Gutierrez Cruz', N'736293', N'987674231', N'Dermatología clínica, estética y láser.', 27, 0, N'12345', N'monica@hotmail.com')
 SET IDENTITY_INSERT [dbo].[Medicos] OFF
 GO
 

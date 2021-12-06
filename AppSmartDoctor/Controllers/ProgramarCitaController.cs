@@ -1,5 +1,7 @@
 ﻿using AppSmartDoctor.DataAccess;
 using AppSmartDoctor.Models;
+using AppSmartDoctor.Models.ViewModel;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,10 +15,17 @@ namespace AppSmartDoctor.Controllers
     [Route("api/[controller]")]
     public class ProgramarCitaController : ControllerBase
     {
-        [HttpPost("Programar")]
-        public Cita Programar(int medicoId, int pacienteId, int horarioId, string motivo)
+        private readonly IMapper _mapper;
+        public ProgramarCitaController(IMapper mapper)
         {
-            return CitaSOA.ProgramarCita(medicoId,pacienteId,horarioId,motivo);
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        }
+
+        [HttpPost("Programar")]
+        public Cita Programar(CitaDTO citaDto)
+        {
+            var cita = _mapper.Map<Cita>(citaDto);
+            return CitaSOA.ProgramarCita(cita, citaDto.horarioId);
         }
 
         [HttpGet("ListarHorariosDisponibles")]

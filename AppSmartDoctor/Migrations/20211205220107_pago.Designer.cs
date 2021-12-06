@@ -4,14 +4,16 @@ using AppSmartDoctor.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AppSmartDoctor.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20211205220107_pago")]
+    partial class pago
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -356,7 +358,7 @@ namespace AppSmartDoctor.Migrations
                     b.Property<string>("celular")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("contrasena")
+                    b.Property<string>("correo")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("descripcion")
@@ -364,9 +366,6 @@ namespace AppSmartDoctor.Migrations
 
                     b.Property<int>("edad")
                         .HasColumnType("int");
-
-                    b.Property<string>("email")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("especialidadId")
                         .HasColumnType("int");

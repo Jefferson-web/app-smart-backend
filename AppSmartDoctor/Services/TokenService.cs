@@ -22,6 +22,30 @@ namespace AppSmartDoctor.Services
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Token:Key"]));
         }
 
+        public string CreateTokenMedico(dynamic medico){
+
+            var credentils = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512);
+
+            List<Claim> claims = new List<Claim>()
+            {
+                new Claim(ClaimTypes.NameIdentifier, medico.medicoId.ToString()),
+                new Claim(ClaimTypes.Name, medico.nombres),
+                new Claim(ClaimTypes.Email, medico.email),
+                new Claim("Edad", medico.edad.ToString())
+            };
+
+            var token = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.Now.AddDays(7),
+                signingCredentials: credentils
+            );
+
+            var jwt_token = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return jwt_token;
+
+        }
+
         public string CreateToken(Paciente paciente)
         {
             var credentils = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512);

@@ -12,13 +12,18 @@ namespace AppSmartDoctor.Controllers
     public class AfiliacionMedicosController : ControllerBase
     {
         [HttpPost("RegistrarMedico")]
-        public Medico RegistrarMedico(int especialidadId, int residenciaId, string nombres, string CMP, string celular, string correo, string descripcion) {
-            return MedicoSOA.RegistrarMedico(especialidadId,residenciaId,nombres,CMP,celular,correo,descripcion);
+        public Medico RegistrarMedico(Medico medico) {
+            return MedicoSOA.RegistrarMedico(medico);
         }
 
         [HttpPut("EditarMedico/{medicoId}")]
         public Medico EditarMedico(int medicoId,int especialidadId,int residenciaId,string nombres,string CMP,string celular,string correo,string descripcion) {
             return MedicoSOA.EditarMedico(medicoId,especialidadId,residenciaId,nombres, CMP,celular,correo,descripcion);
+        }
+
+        [HttpGet("ListarTodasLasEspecialidades")]
+        public IEnumerable<Especialidad> ListarTodasLasEspecialidades() {
+            return MedicoSOA.ListarTodasLasEspecialidades();
         }
 
         [HttpGet("ListarResidencias")]
