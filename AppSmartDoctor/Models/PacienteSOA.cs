@@ -16,17 +16,17 @@ namespace AppSmartDoctor.Models
             return paciente;
         }
 
-        public static Paciente EditarPaciente(int pacienteId, string nombres, string DNI, DateTime fecha_nacimiento, int edad, bool sexo, string distrito_colonia) {
+        public static Paciente EditarPaciente(Paciente paciente, int pacienteId) {
             var ctx = new DataContext();
             var paciente_a_editar = ObtenerPaciente(pacienteId);
             if (paciente_a_editar != null)
             {
-                paciente_a_editar.nombres = nombres;
-                paciente_a_editar.DNI = DNI;
-                paciente_a_editar.fecha_nacimiento = fecha_nacimiento;
-                paciente_a_editar.edad = edad;
-                paciente_a_editar.sexo = sexo;
-                paciente_a_editar.distrito_colonia = distrito_colonia;
+                paciente_a_editar.nombres = paciente.nombres;
+                paciente_a_editar.DNI = paciente.DNI;
+                paciente_a_editar.edad = paciente.edad;
+                paciente_a_editar.distrito_colonia = paciente.distrito_colonia;
+                paciente_a_editar.fecha_nacimiento = paciente.fecha_nacimiento;
+                paciente_a_editar.sexo = paciente.sexo;
                 ctx.Pacientes.Update(paciente_a_editar);
                 ctx.SaveChanges();
                 return paciente_a_editar;

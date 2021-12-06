@@ -33,9 +33,14 @@ namespace AppSmartDoctor.Controllers
             }
         }
 
+        [HttpGet("ObtenerInfoPaciente/{pacienteId}")]
+        public ActionResult<Paciente> ObtenerInfoPaciente(int pacienteId) {
+            return PacienteSOA.ObtenerPaciente(pacienteId);
+        }
+
         [HttpPut("EditarPaciente/{pacienteId}")]
-        public Paciente EditarPaciente(int pacienteId, string nombres, string DNI, DateTime fecha_nacimiento, int edad, bool sexo, string distrito_colonia) {
-            return PacienteSOA.EditarPaciente(pacienteId, nombres, DNI, fecha_nacimiento, edad, sexo, distrito_colonia);
+        public Paciente EditarPaciente([FromBody] Paciente paciente, int pacienteId) {
+            return PacienteSOA.EditarPaciente(paciente, pacienteId);
         }
 
     }
